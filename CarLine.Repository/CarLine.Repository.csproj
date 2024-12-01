@@ -10,4 +10,8 @@
     <ProjectReference Include="..\CarLine.Model\CarLine.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfices\" />
+  </ItemGroup>
+
 </Project>
