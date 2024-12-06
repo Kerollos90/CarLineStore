@@ -1,9 +1,9 @@
 ﻿namespace CarLine.Model.Entity
 {
-    public class CarBrand
+    public class CarBrand : BaseEntity<int>
     {
 
-        public int Id { get; set; }
+        
 
         public string Name { get; set; }
 

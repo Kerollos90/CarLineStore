@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,14 +44,14 @@ namespace CarLine.Model.Entity
 
     }
 
-    public class Car
+    public class Car : BaseEntity<int>
     {
 
-        public int Id { get; set; }
+
 
         public string Brand { get; set; }
-       
-        
+
+
         public string Color { get; set; }
         public string Description { get; set; }
 
@@ -58,7 +59,7 @@ namespace CarLine.Model.Entity
 
         public decimal Price { get; set; }
 
-        public string Year { get; set; }
+        public short Year { get; set; }
 
         public CarStatus CarStatus { get; set; }
 
@@ -72,11 +73,12 @@ namespace CarLine.Model.Entity
 
         public string CarAddress { get; set; }
 
-        public DateTime DateTime { get; set; } = DateTime.Now;
+        public DateTime DateTime { get; set; } = DateTime.Now.Date;
 
-        public List<Picture>? PictureUrl { get; set; } = new List<Picture>();
+        public ICollection<Picture>? PictureUrl { get; set; } = new List<Picture>();
+        
 
-        public ICollection<Equipment> Equipments { get; set; } = new List<Equipment>();
+        public ICollection<Equipment>? Equipments { get; set; } = new List<Equipment>();
 
         public bool Taxi { get; set; }
 
@@ -93,6 +95,7 @@ namespace CarLine.Model.Entity
 
         public bool IsDeleted { get; set; } = false;
 
+       
 
     }
 }

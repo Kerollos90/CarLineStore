@@ -19,9 +19,9 @@ namespace CarLine.Model.Entity
     
     }
 
-    public class CarShowRoom
+    public class CarShowRoom : BaseEntity<int>
     {
-        public int Id { get; set; }
+        
 
         public string DealerName { get; set; }
         

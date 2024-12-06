@@ -1,8 +1,8 @@
 ﻿namespace CarLine.Model.Entity
 {
-    public class Phone
+    public class Phone : BaseEntity<int>
     {
-        public int Id { get; set; }
+        
         public string PhoneNumber { get; set; }
 
     }
