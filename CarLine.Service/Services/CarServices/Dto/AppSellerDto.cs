@@ -10,13 +10,13 @@ namespace CarLine.Service.Services.CarServices.Dto
     public class AppSellerDto
     {
 
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string DisplayName { get; set; }
 
-        public List<Phone> Phone { get; set; } = new List<Phone>();
+        public List<PhoneDto> Phone { get; set; } = new List<PhoneDto>();
 
 
-        public List<CarDto> Car { get; set; } = new List<CarDto> ();
+        public List<CarDetailsDto> Car { get; set; } = new List<CarDetailsDto> ();
     }
 }

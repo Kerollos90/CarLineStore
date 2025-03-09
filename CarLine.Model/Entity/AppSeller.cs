@@ -11,8 +11,7 @@ namespace CarLine.Model.Entity
 {
     public class AppSeller : IdentityUser
     {
-        [Key]
-        public int Id { get; set; }
+       
 
         public string DisplayName { get; set; }
 
