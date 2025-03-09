@@ -26,6 +26,11 @@ namespace Carline.Web.Extensions
                 max_tokens = 100
             };
 
+
+
+
+
+
             var requestContent = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
 
             _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {_apiKey}");
