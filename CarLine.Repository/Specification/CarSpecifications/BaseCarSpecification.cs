@@ -69,6 +69,10 @@ namespace CarLine.Repository.Specification.CarSpecifications
 
         public short? MinYear { get; set; }
         public short? MaxYear { get; set; }
+        internal short? Year { get; set; }
+
+
+
 
 
 

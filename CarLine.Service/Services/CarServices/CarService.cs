@@ -28,35 +28,79 @@ namespace CarLine.Service.Services.CarServices
             _mapper = mapper;
         }
 
-        public async Task<CarDto> AddCar(CarDto car)
+        public async Task<CarDetailsDto> AddCar(CarDetailsDto car)
         {
-            
+
+            if (car is null)
+                throw new Exception("Error Your Data Not Completed");
+
            var cars =  _mapper.Map<Car>( car );
 
+            
              await _unitOfWork.Repository<Car, int>().AddAsync(cars);
-            _unitOfWork.CompleteAsync();
+             await _unitOfWork.CompleteAsync();
 
-            var result = _mapper.Map<CarDto>(cars);
-
+            var result = _mapper.Map<CarDetailsDto>( cars );
             return result;
+
+
+            
+
+            
+
+           
 
 
             
         }
 
-        public async Task<CarDetailsDto> CarDetailsAsync(int? spec)
+        public async Task<CarBrandModelDto> AvgCarByYearAsync(string brand, string model)
         {
-            var specif = new CarSpecification(spec);
 
-            var cars = await _unitOfWork.Repository<Car, int>().GetWithSpcificationById(specif);
+            if(string.IsNullOrEmpty(brand)||string.IsNullOrEmpty(model))
+            throw new Exception("Error Your Data Not Completed");
 
+
+            var spec = new CarSpecification(brand, model);
+
+
+            var cars = await _unitOfWork.Repository<Car, int>().GetAllWithSpcificationAsync(spec);
 
             
 
+            if (!cars.Any())
+            throw new Exception("Barnd Or Model Not Found");
+               
 
 
+            var yearPrices = cars.GroupBy(car => car.Year)
+                                 .Select(x => new CarPriceDto
+                                 {
+                                     Year = x.Key,
+                                     MinPrice = ((int)x.Min(c => c.Price)),
+                                     MaxPrice = ((int)x.Max(c => c.Price)),
+                                     AveragePrice = ((int)x.Average(c => c.Price))
+                                 })
+                                 .OrderBy(y => y.Year) 
+                                 .ToList();
+
+           
+            return new CarBrandModelDto
+            {
+                Brand = brand,
+                Model = model,
+                YearPrices = yearPrices
+            };
+
+        }
+
+        public async Task<CarDetailsDto> CarDetailsAsync(int? spec)
+        {
 
 
+            var specif = new CarSpecification(spec);
+
+            var cars = await _unitOfWork.Repository<Car, int>().GetWithSpcificationById(specif);
 
 
 

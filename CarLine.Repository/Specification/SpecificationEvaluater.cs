@@ -11,7 +11,7 @@ namespace CarLine.Repository.Specification
     public class SpecificationEvaluater<TEntity, TKey> where TEntity : BaseEntity<TKey>
     {
 
-        public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ISpecification<TEntity> specs)
+        public static  IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ISpecification<TEntity> specs)
         {
             var query = inputQuery;
 
@@ -23,7 +23,7 @@ namespace CarLine.Repository.Specification
             
             query = specs.Includes.Aggregate(query, (current, include) => current.Include(include));
 
-            return query;
+            return  query;
         }
 
     }

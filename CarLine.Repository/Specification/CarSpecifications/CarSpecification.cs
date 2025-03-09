@@ -23,9 +23,9 @@ namespace CarLine.Repository.Specification.CarSpecifications
               (!spec.MinPrice.HasValue||car.Price >=spec.MinPrice.Value )&&
               (!spec.MaxPrice.HasValue||car.Price <= spec.MaxPrice.Value)&&
               (!spec.MaxYear.HasValue||car.Year <= spec.MaxYear.Value)&&
-              (!spec.MinYear.HasValue||car.Year >= spec.MinYear.Value)&&
-              (car.carPayment== CarPaymentStatus.Recived)&&
-              (car.IsDeleted == false)
+              (!spec.MinYear.HasValue||car.Year >= spec.MinYear.Value)
+              //(car.carPayment== CarPaymentStatus.Recived)&&
+              //(car.IsDeleted == false)
 
 
             )
@@ -43,6 +43,29 @@ namespace CarLine.Repository.Specification.CarSpecifications
             
 
         }
+        public CarSpecification(string brand, string model) : base
+            (
+              car =>
+              (string.IsNullOrEmpty(brand) || car.Brand.Trim().ToLower().Contains(brand)) &&
+              (string.IsNullOrEmpty(model) || car.Model.Trim().ToLower().Contains(model)) 
+           
+        
+
+            )
+        {
+
+
+
+            
+           
+
+
+
+
+
+
+
+        }
 
         public CarSpecification(int? id) : base(x => x.Id == id)
         {
@@ -51,6 +74,8 @@ namespace CarLine.Repository.Specification.CarSpecifications
 
             AddIncludes(p => p.PictureUrl);
             AddIncludes(p => p.Equipments);
+
+            
 
         }
 

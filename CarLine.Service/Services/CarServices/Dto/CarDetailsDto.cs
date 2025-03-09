@@ -8,6 +8,10 @@ namespace CarLine.Service.Services.CarServices.Dto
 {
     public class CarDetailsDto : CarDto
     {
+        internal decimal AveragePrice;
+        internal decimal MinPrice;
+        internal decimal MaxPrice;
+
         public int Id { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
@@ -34,7 +38,6 @@ namespace CarLine.Service.Services.CarServices.Dto
         public int Millage { get; set; }
 
 
-        public DateTime DateTime { get; set; } = DateTime.Now.Date;
 
         public List<PictureDto>? PictureUrl { get; set; } = new List<PictureDto>();
 
@@ -52,8 +55,11 @@ namespace CarLine.Service.Services.CarServices.Dto
 
         public string Whatsapp { get; set; }
 
-        public string DisplayName { get; set; }
 
-        private CarPaymentStatus carPayment { get; set; }
+        private CarPaymentStatus? carPayment { get; set; }
+
+
+        public string? AppSellerDtoId { get; set; }
+
     }
 }

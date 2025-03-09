@@ -94,8 +94,9 @@ namespace CarLine.Model.Entity
         public CarPaymentStatus carPayment { get; set; } = CarPaymentStatus.Pending;
 
         public bool IsDeleted { get; set; } = false;
-
        
+        public string? AppSellerId { get; set; }
+
 
     }
 }

@@ -24,7 +24,10 @@ namespace CarLine.Service.Services.CarServices.Dto
 
 
         public CarStatus CarStatus { get; set; }
-       
+
+        public List<PictureDto>? PictureUrl { get; set; } 
+
+
 
 
 

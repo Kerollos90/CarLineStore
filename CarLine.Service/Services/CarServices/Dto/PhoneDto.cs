@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace CarLine.Service.Services.CarServices.Dto
 {
-    public class PictureDto
+    public class PhoneDto
     {
-        internal int Id { get; set; }
-        public string PictureUrl { get; set; }
-
-        internal int? CarDtoId { get; set; }
+        public string PhoneNumber { get; set; }
 
     }
 }

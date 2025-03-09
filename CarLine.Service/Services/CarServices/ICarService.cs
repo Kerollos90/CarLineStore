@@ -14,7 +14,8 @@ namespace CarLine.Service.Services.CarServices
         Task<IReadOnlyList<CarDto>> GetAllCarAsync(BaseCarSpecification spec);
 
         Task<CarDetailsDto> CarDetailsAsync(int? spec);
+        Task<CarBrandModelDto> AvgCarByYearAsync(string brand, string model);
 
-        Task<CarDto> AddCar(CarDto car);
+        Task<CarDetailsDto> AddCar(CarDetailsDto car);
     }
 }

@@ -22,15 +22,23 @@ namespace Carline.Web.Controllers
          => Ok(await _carService.GetAllCarAsync(specif));
 
 
+
+
         [HttpGet]
-        public async Task<ActionResult<CarDetailsDto>> GetCarDetailsById([FromQuery] int? Id)
+        public async Task<ActionResult<IReadOnlyList<CarDetailsDto>>>  GetCarDetailsById([FromQuery] int? Id)
          => Ok(await _carService.CarDetailsAsync(Id));
+        
+        [HttpGet]
+        public async Task<ActionResult<IReadOnlyList<CarBrandModelDto>>>  GetAVGCarByYear([FromQuery] string Brand, string Model)
+         => Ok(await _carService.AvgCarByYearAsync(Brand,Model));
 
         [HttpPost]
-        public async Task<ActionResult<CarDto>> AddCar([FromBody] CarDto carDto)
+        public async Task<ActionResult<CarDetailsDto>> AddCar([FromBody] CarDetailsDto carDto)
         {
-            var result = await _carService.AddCar(carDto);
-            return Ok(result);
+           var result= await _carService.AddCar(carDto);
+           
+          return Ok( result);
+
         }
     }
 }
