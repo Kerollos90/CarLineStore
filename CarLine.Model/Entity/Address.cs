@@ -1,9 +1,9 @@
 ﻿namespace CarLine.Model.Entity
 {
-    public class Address
+    public class Address : BaseEntity<int>
     {
 
-        public int Id { get; set; }
+        
 
         public string Street { get; set; }
 

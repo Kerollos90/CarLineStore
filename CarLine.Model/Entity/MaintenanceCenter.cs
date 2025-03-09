@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 namespace CarLine.Model.Entity
 {
     
-    public class MaintenanceCenter
+    public class MaintenanceCenter : BaseEntity<int>
     {
 
-        public int Id { get; set; }
+        
 
         public string Name { get; set; }
 
         public Address  Address { get; set; }
 
-        public Picture? PictureUrl { get; set; } 
+        public Picture? PictureUrl { get; set; }
 
-        public List<CarBrand> CarSpecialzedBrand { get; set; } = new List<CarBrand>
+        public List<CarBrand> CarSpecialzedBrand { get; set; } = new List<CarBrand>();
 
         public List<Phone> Phone { get; set; } = new List<Phone>();
 

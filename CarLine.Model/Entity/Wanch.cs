@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CarLine.Model.Entity
 {
-    public class Wanch
+    public class Wanch : BaseEntity<int>
     {
 
-        public int Id { get; set; }
+        
 
         public string Name { get; set; }
 

@@ -12,17 +12,15 @@ namespace CarLine.Model.Entity
     public class AppSeller : IdentityUser
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string DisplayName { get; set; }
 
-        public List<Phone> Phone { get; set; }
-        [NotMapped]
-        public int PhoneId { get; set; }
+        public List<Phone> Phone { get; set; } = new List<Phone> { };
+        
 
-        public List<Car> Car { get; set; }
-        [NotMapped]
-        public int CarId { get; set; }
+        public List<Car> Car { get; set; } = new List<Car> { };
+        
 
     }
 }

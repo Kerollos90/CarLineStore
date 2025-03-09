@@ -18,4 +18,8 @@
     <ProjectReference Include="..\CarLine.Service\CarLine.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Cars\" />
+  </ItemGroup>
+
 </Project>

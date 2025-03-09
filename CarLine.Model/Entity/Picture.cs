@@ -1,9 +1,11 @@
 ﻿namespace CarLine.Model.Entity
 {
-    public class Picture
+    public class Picture : BaseEntity<int>
     {
-        public int Id { get; set; }
+        
 
         public string PictureUrl { get; set; }
+
+        public int? CarId { get; set; }
     }
 }
