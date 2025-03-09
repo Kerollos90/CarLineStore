@@ -22,6 +22,8 @@ namespace Carline.Web.Controllers
          => Ok(await _carService.GetAllCarAsync(specif));
 
 
+
+
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<CarDetailsDto>>>  GetCarDetailsById([FromQuery] int? Id)
          => Ok(await _carService.CarDetailsAsync(Id));
