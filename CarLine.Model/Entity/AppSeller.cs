@@ -15,7 +15,7 @@ namespace CarLine.Model.Entity
 
         public string DisplayName { get; set; }
 
-        public List<Phone> Phone { get; set; } = new List<Phone> { };
+       
         
 
         public List<Car> Car { get; set; } = new List<Car> { };

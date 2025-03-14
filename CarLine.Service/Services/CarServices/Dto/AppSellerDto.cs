@@ -14,7 +14,6 @@ namespace CarLine.Service.Services.CarServices.Dto
 
         public string DisplayName { get; set; }
 
-        public List<PhoneDto> Phone { get; set; } = new List<PhoneDto>();
 
 
         public List<CarDetailsDto> Car { get; set; } = new List<CarDetailsDto> ();

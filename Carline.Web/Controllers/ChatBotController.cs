@@ -8,7 +8,7 @@ using Microsoft.Graph;
 
 namespace Carline.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/chat")]
     [ApiController]
     public class ChatBotController : ControllerBase
     {

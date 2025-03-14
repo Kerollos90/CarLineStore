@@ -48,7 +48,7 @@ namespace CarLine.Model.Entity
 
         public AppSeller AppSeller { get; set; }
 
-        public List<Picture>? PictureUrl { get; set; } = new List<Picture>();
+        public Picture? PictureUrl { get; set; } 
 
     }
 }
