@@ -4,6 +4,7 @@ using CarLine.Model.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarLine.Model.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    partial class StoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250309131327_updateTablePictureAndPhone")]
+    partial class updateTablePictureAndPhone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +37,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("MaintenanceCentersId");
 
-                    b.ToTable("CarBrandMaintenanceCenter", (string)null);
+                    b.ToTable("CarBrandMaintenanceCenter");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.Address", b =>
@@ -69,7 +72,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("MaintenanceCenterId");
 
-                    b.ToTable("Addresses", (string)null);
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.AppSeller", b =>
@@ -232,7 +235,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("CarShowRoomId");
 
-                    b.ToTable("Cars", (string)null);
+                    b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.CarBrand", b =>
@@ -249,7 +252,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CarBrands", (string)null);
+                    b.ToTable("CarBrands");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.CarShowRoom", b =>
@@ -287,7 +290,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("PictureUrlId");
 
-                    b.ToTable("CarShowRooms", (string)null);
+                    b.ToTable("CarShowRooms");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.Equipment", b =>
@@ -309,7 +312,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("CarId");
 
-                    b.ToTable("Equipments", (string)null);
+                    b.ToTable("Equipments");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.MaintenanceCenter", b =>
@@ -336,7 +339,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("PictureUrlId");
 
-                    b.ToTable("MaintenanceCenters", (string)null);
+                    b.ToTable("MaintenanceCenters");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.Phone", b =>
@@ -363,7 +366,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("MaintenanceCenterId");
 
-                    b.ToTable("Phones", (string)null);
+                    b.ToTable("Phones");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.Picture", b =>
@@ -390,7 +393,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("CarId");
 
-                    b.ToTable("Pictures", (string)null);
+                    b.ToTable("Pictures");
                 });
 
             modelBuilder.Entity("CarLine.Model.Entity.Wanch", b =>
@@ -431,7 +434,7 @@ namespace CarLine.Model.Migrations
 
                     b.HasIndex("PictureUrlId");
 
-                    b.ToTable("Wanches", (string)null);
+                    b.ToTable("Wanches");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

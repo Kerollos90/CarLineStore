@@ -15,7 +15,7 @@ namespace CarLine.Model.Entity
 
         public string Name { get; set; }
 
-        public Address  Address { get; set; }
+        public List<Address>  Address { get; set; } = new List<Address>();
 
         public Picture? PictureUrl { get; set; }
 

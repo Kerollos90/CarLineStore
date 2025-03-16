@@ -18,13 +18,13 @@ namespace CarLine.Model.Entity
 
         public string Email { get; set; }
 
-        public List<Phone> Phone { get; set; }
+        public Phone Phone { get; set; }
         [NotMapped]
         public int PhoneId { get; set; }
 
         public AppSeller AppSeller { get; set; }
 
-        public List<Picture>? PictureUrl { get; set; } = new List<Picture>();
+        public Picture? PictureUrl { get; set; } 
 
 
 
