@@ -6,11 +6,11 @@ namespace CarLine.Repository.Interfices
     public interface IGenericRepository<TEntity, TKey> where TEntity : BaseEntity<TKey>
     {
 
-        Task<IReadOnlyList<TEntity>> GetAllAsync();
+        Task<List<TEntity>> GetAllAsync();
         Task<TEntity> GetById(int? Id);
 
         Task<TEntity> GetWithSpcificationById(ISpecification<TEntity> specs);
-        Task<IReadOnlyList<TEntity>> GetAllWithSpcificationAsync(ISpecification<TEntity> specs);
+        Task<List<TEntity>> GetAllWithSpcificationAsync(ISpecification<TEntity> specs);
 
 
         Task AddAsync(TEntity entity);

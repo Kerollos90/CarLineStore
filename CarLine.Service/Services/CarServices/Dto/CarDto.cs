@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarLine.Service.Services.CarServices.Dto
 {
-    public class CarDto
+    public class CarDto 
     {
         public int Id { get; set; }
         public string Brand { get; set; }
@@ -20,12 +20,14 @@ namespace CarLine.Service.Services.CarServices.Dto
         public short Year { get; set; }
         public decimal Price { get; set; }
 
+
+
         public string CarAddress { get; set; }
 
 
         public CarStatus CarStatus { get; set; }
 
-        public List<PictureDto>? PictureUrl { get; set; } 
+        public List<PictureDto>? PictureUrl { get; set; } = new List<PictureDto>();
 
 
 
@@ -33,40 +35,7 @@ namespace CarLine.Service.Services.CarServices.Dto
 
     }
 
-     public enum CarStatus
-    {
-        New = 1,
-        Used = 2,
-        Imported
-
-    }
-
-    public enum Transmission
-    {
-        Manual = 1,
-        Automatic = 2
-
-
-    }
-
-    public enum FuelType
-    {
-        Gas = 1,
-        Diesel,
-        naturalGas,
-        Electric,
-        Hybird
-
-
-    }
-
-    public enum CarPaymentStatus
-    {
-        Pending = 1,
-        Recived,
-        Failed
-
-    }
+   
 
 
    

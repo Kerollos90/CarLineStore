@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CarLine.Model.Entity;
+using CarLine.Service.Services.AppSellerServices.Dto;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -11,28 +12,37 @@ namespace CarLine.Service.Services.CarServices.Dto
 {
     public class CarProfile : Profile
     {
+        
+
         public CarProfile()
         {
 
+            CreateMap< Car, CarDto>()
+                .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom<OnePictureResolver>())
+                .ReverseMap();
 
 
 
 
-            CreateMap<Picture, PictureDto>()
+
+            CreateMap<CarDto, CarDetailsDto>().ReverseMap();
+
+            CreateMap<Picture,PictureDto>()
                 .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom(src => src.PictureUrl)).ReverseMap();
+            
+            
+            
 
-                       CreateMap<Car, CarDetailsDto>()
-                .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom<CarPictureUrlResolver>())  
-                .ForMember(dest => dest.AppSellerDtoId, opt => opt.MapFrom(src=>src.AppSellerId)).ReverseMap();
-
-            CreateMap<Car, CarDto>()
-            .ForMember(dest => dest.PictureUrl , opt => opt.MapFrom(x=>x.PictureUrl.Select(x=>x.PictureUrl).ToString())).ReverseMap();
+            CreateMap<Car, CarDetailsDto>()
+     .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom<CarPictureUrlResolver>())
+     .ForMember(dest => dest.AppSellerDtoId, opt => opt.MapFrom(src => src.AppSellerId)).ReverseMap();
 
             
-            CreateMap<Car, CarDto>().ReverseMap();
+            
+           
             CreateMap<Car, CarPriceDto>().ReverseMap();
             CreateMap<Car, Picture>().ReverseMap();
-            CreateMap<CarDto, PictureDto>().ReverseMap();      
+              
             
             CreateMap<Car, Equipment>().ReverseMap();
             CreateMap<CarDto, EquipmentDto>().ReverseMap();
@@ -49,18 +59,6 @@ namespace CarLine.Service.Services.CarServices.Dto
 
             CreateMap<AppSellerDto, CarDetailsDto>()
                 .ForMember(dest=>dest.AppSellerDtoId, opt=>opt.MapFrom(src=>src.Id)).ReverseMap();
-
-            
-
-         
-
-
-
-
-
-
-
-
         }
             
         

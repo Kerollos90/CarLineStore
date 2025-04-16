@@ -5,7 +5,7 @@ namespace Carline.Web.Extensions
 {
     public class OpenAIService
     {
-        private readonly string _apiKey = "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";
+        private readonly string _apiKey = "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";
         private readonly HttpClient _httpClient;
 
         public OpenAIService()

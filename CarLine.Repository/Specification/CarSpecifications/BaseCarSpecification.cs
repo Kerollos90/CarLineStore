@@ -15,6 +15,8 @@ namespace CarLine.Repository.Specification.CarSpecifications
 
         private string? _City;
 
+        
+
 
         public decimal? MinPrice { get; set; }
         public decimal? MaxPrice { get; set; }
@@ -71,6 +73,8 @@ namespace CarLine.Repository.Specification.CarSpecifications
         public short? MaxYear { get; set; }
         internal short? Year { get; set; }
 
+        //public int? PageIndex { get; set; } = 1;
+        //public int? PageSize { get; set; } = 8;
 
 
 

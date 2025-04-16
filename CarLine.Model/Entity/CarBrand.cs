@@ -7,7 +7,7 @@
 
         public string Name { get; set; }
 
-        public List<Picture> Picture { get; set; } = new List<Picture>();
+        public List<PictureBrand> Picture { get; set; } = new List<PictureBrand>();
 
         public List<MaintenanceCenter>  MaintenanceCenters { get; set; }
     }

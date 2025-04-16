@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarLine.Service.Services.CarServices.Dto
 {
-    public class CarDetailsDto : CarDto
+    public class CarDetailsDto 
     {
         internal decimal AveragePrice;
         internal decimal MinPrice;
@@ -60,6 +60,41 @@ namespace CarLine.Service.Services.CarServices.Dto
 
 
         public string? AppSellerDtoId { get; set; }
+
+    }
+
+    public enum CarStatus
+    {
+        New = 1,
+        Used = 2,
+        Imported
+
+    }
+
+    public enum Transmission
+    {
+        Manual = 1,
+        Automatic = 2
+
+
+    }
+
+    public enum FuelType
+    {
+        Gas = 1,
+        Diesel,
+        naturalGas,
+        Electric,
+        Hybird
+
+
+    }
+
+    public enum CarPaymentStatus
+    {
+        Pending = 1,
+        Recived,
+        Failed
 
     }
 }
