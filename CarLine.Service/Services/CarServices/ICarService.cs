@@ -11,7 +11,7 @@ namespace CarLine.Service.Services.CarServices
 {
     public interface ICarService
     {
-        Task<IReadOnlyList<CarDto>> GetAllCarAsync(BaseCarSpecification spec);
+        Task<List<CarDto>> GetAllCarAsync(BaseCarSpecification spec);
 
         Task<CarDetailsDto> CarDetailsAsync(int? spec);
         Task<CarBrandModelDto> AvgCarByYearAsync(string brand, string model);

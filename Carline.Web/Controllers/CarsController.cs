@@ -18,6 +18,7 @@ namespace Carline.Web.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration =60)]
         public async Task<ActionResult<IReadOnlyList<CarDto>>> GetAllCarsAsync([FromQuery]BaseCarSpecification specif)
          => Ok(await _carService.GetAllCarAsync(specif));
 
@@ -35,9 +36,16 @@ namespace Carline.Web.Controllers
         [HttpPost]
         public async Task<ActionResult<CarDetailsDto>> AddCar([FromBody] CarDetailsDto carDto)
         {
-           var result= await _carService.AddCar(carDto);
-           
-          return Ok( result);
+            if( carDto is null)
+                throw new Exception("Error Your Data Not Completed");
+
+
+            var result= await _carService.AddCar(carDto);
+
+            if (result is null)
+                throw new Exception("Error Your Data Not Completed");
+
+            return Ok( result);
 
         }
     }

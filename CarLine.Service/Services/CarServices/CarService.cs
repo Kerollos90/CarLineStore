@@ -37,10 +37,15 @@ namespace CarLine.Service.Services.CarServices
            var cars =  _mapper.Map<Car>( car );
 
             
-             await _unitOfWork.Repository<Car, int>().AddAsync(cars);
+            
+            
+              await _unitOfWork.Repository<Car, int>().AddAsync(cars);
              await _unitOfWork.CompleteAsync();
 
+
             var result = _mapper.Map<CarDetailsDto>( cars );
+            if (result is null)
+                throw new Exception("Error Your Data Not Completed");
             return result;
 
 
@@ -102,6 +107,9 @@ namespace CarLine.Service.Services.CarServices
 
             var cars = await _unitOfWork.Repository<Car, int>().GetWithSpcificationById(specif);
 
+            if(cars is null)
+                throw new Exception("Car Not Found");
+
 
 
             var Mapped = _mapper.Map<CarDetailsDto>(cars);
@@ -111,7 +119,7 @@ namespace CarLine.Service.Services.CarServices
 
         
 
-        public async Task<IReadOnlyList<CarDto>> GetAllCarAsync(BaseCarSpecification spec)
+        public async Task<List<CarDto>> GetAllCarAsync(BaseCarSpecification spec)
         {
             
 
@@ -122,8 +130,21 @@ namespace CarLine.Service.Services.CarServices
 
 
 
-            var carsMapped = _mapper.Map<IReadOnlyList<CarDto>>( cars );
-            return carsMapped;
+        
+
+           // var carsMapped = _mapper.Map<List<CarDetailsDto>>(cars);
+            var carsMappe = _mapper.Map<List<CarDto>>(cars);
+
+
+           
+
+
+
+            return carsMappe;
+
+
+
+
 
 
         }

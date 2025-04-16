@@ -78,6 +78,37 @@ namespace CarLine.Repository.Specification.CarSpecifications
             
 
         }
+        public CarSpecification(string? Userid) : base(x => x.AppSellerId == Userid)
+        {
+
+            
+
+            AddIncludes(p => p.PictureUrl);
+            AddIncludes(p => p.Equipments);
+
+            
+
+        }
+        
+        
+        //public CarSpecification(int? PageIndex , int? PageSize) : base
+        //    (
+        //    car =>
+        //        (PageIndex.HasValue && PageSize.HasValue)
+
+        //    )
+        //{
+
+
+        //   // AddIncludes(PageSize);
+
+
+        //   //AddIncludes(p => p.PictureUrl);
+            
+
+
+
+        //}
 
 
 

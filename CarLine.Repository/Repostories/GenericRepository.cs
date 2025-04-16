@@ -32,7 +32,7 @@ namespace CarLine.Repository.Repostories
             _dbContext.Set<TEntity>().Remove( entity );
         }
 
-        public async Task<IReadOnlyList<TEntity>> GetAllAsync()
+        public async Task<List<TEntity>> GetAllAsync()
           =>  await _dbContext.Set<TEntity>().ToListAsync();
 
 
@@ -52,7 +52,7 @@ namespace CarLine.Repository.Repostories
         
 
 
-        public async Task<IReadOnlyList<TEntity>> GetAllWithSpcificationAsync(ISpecification<TEntity> specs)
+        public async Task<List<TEntity>> GetAllWithSpcificationAsync(ISpecification<TEntity> specs)
            => await SpecificationEvaluater<TEntity, TKey>.GetQuery(_dbContext.Set<TEntity>(), specs).ToListAsync();
 
     }

@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
 using CarLine.Model.Entity;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace CarLine.Service.Services.CarServices.Dto
 {
@@ -25,17 +21,47 @@ namespace CarLine.Service.Services.CarServices.Dto
             if (source.PictureUrl == null || !source.PictureUrl.Any())
                 return new List<PictureDto>();
 
+            string BaseUrl = GetNgrokUrl().Result ?? _configuration["BaseUrl"];
+
             return source.PictureUrl.Select(p => new PictureDto
             {
                 Id = p.Id,
-                PictureUrl = $"{_configuration["BaseUrl"]}/{p.PictureUrl}",
+                PictureUrl = $"{BaseUrl}/{p.PictureUrl}",
                 CarDtoId = p.CarId
             }).ToList(); 
+        }
+
+        private static async Task<string> GetNgrokUrl()
+        {
+            using HttpClient client = new HttpClient();
+
+            string ngrokApiUrl = "http://localhost:4040/api/tunnels";
+            try
+            {
+                string response = await client.GetStringAsync(ngrokApiUrl);
+                JObject json = JObject.Parse(response);
+                string Ngrokurl = json["tunnels"]?[0]?["public_url"]?.ToString();
+
+                if(!string.IsNullOrEmpty(Ngrokurl)&&! Ngrokurl.Contains("localhost"))
+                {
+                    return Ngrokurl;
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
+                return null;
+
+
         }
 
 
         
     }
+
+    
 
 
 
