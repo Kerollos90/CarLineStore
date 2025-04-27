@@ -25,15 +25,15 @@ namespace CarLine.Service.Services.CarServices.Dto
         public string CarAddress { get; set; }
 
 
-        public CarStatus CarStatus { get; set; }
+        public CarStatusDto CarStatus { get; set; }
 
         public string Description { get; set; }
 
         public string EngineType { get; set; }
 
-        public Transmission Transmission { get; set; }
+        public TransmissionDto Transmission { get; set; }
 
-        public FuelType FuelType { get; set; }
+        public FuelTypeDto FuelType { get; set; }
 
         public int Millage { get; set; }
 
@@ -56,14 +56,14 @@ namespace CarLine.Service.Services.CarServices.Dto
         public string Whatsapp { get; set; }
 
 
-        private CarPaymentStatus? carPayment { get; set; }
+        private CarPaymentStatusdto? carPayment { get; set; }
 
 
         public string? AppSellerDtoId { get; set; }
 
     }
 
-    public enum CarStatus
+    public enum CarStatusDto
     {
         New = 1,
         Used = 2,
@@ -71,7 +71,7 @@ namespace CarLine.Service.Services.CarServices.Dto
 
     }
 
-    public enum Transmission
+    public enum TransmissionDto
     {
         Manual = 1,
         Automatic = 2
@@ -79,7 +79,7 @@ namespace CarLine.Service.Services.CarServices.Dto
 
     }
 
-    public enum FuelType
+    public enum FuelTypeDto
     {
         Gas = 1,
         Diesel,
@@ -90,7 +90,7 @@ namespace CarLine.Service.Services.CarServices.Dto
 
     }
 
-    public enum CarPaymentStatus
+    public enum CarPaymentStatusdto
     {
         Pending = 1,
         Recived,

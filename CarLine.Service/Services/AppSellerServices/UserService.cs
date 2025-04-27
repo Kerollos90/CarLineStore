@@ -40,7 +40,7 @@ namespace CarLine.Service.Services.AppSellerServices
             if (user == null)
                 throw new Exception("Not Found Email");
 
-            var carSpecification = new CarSpecification(Id);
+            var carSpecification = new CarSpecification(user.Id);
 
             var carResult = await _unitOfWork.Repository<Car, int>().GetAllWithSpcificationAsync(carSpecification);
 

@@ -18,7 +18,7 @@ namespace Carline.Web.Controllers
         }
 
         [HttpGet]
-        [ResponseCache(Duration =60)]
+        [ResponseCache(Duration =30)]
         public async Task<ActionResult<IReadOnlyList<CarDto>>> GetAllCarsAsync([FromQuery]BaseCarSpecification specif)
          => Ok(await _carService.GetAllCarAsync(specif));
 

@@ -38,6 +38,8 @@ namespace CarLine.Repository.Repostories
 
         public async Task<TEntity> GetById(int? Id)
         => await _dbContext.Set<TEntity>().FindAsync(Id);
+        public async Task<TEntity> GetByIdAsNotTracked(int? Id)
+        => await _dbContext.Set<TEntity>().AsNoTracking().FirstOrDefaultAsync(x=> EF.Property<int>(x,"Id") == Id.Value);
 
 
         public void Update(TEntity entity)

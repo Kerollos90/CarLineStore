@@ -8,6 +8,7 @@ namespace CarLine.Service.Services.CarServices.Dto
 {
     public class PhoneDto
     {
+        public int Id { get; set; }
         public string PhoneNumber { get; set; }
 
     }
