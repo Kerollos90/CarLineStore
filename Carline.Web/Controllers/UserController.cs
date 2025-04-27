@@ -55,13 +55,13 @@ namespace Carline.Web.Controllers
 
         public async Task<ActionResult<AppSellerDto>> GetUserCar()
         {
-            var userId = HttpContext.Session.GetString("UserId");
+            var userId = User?.FindFirst(ClaimTypes.Email);
 
             if (userId == null)
                 return BadRequest(new Exception("Email Does Not Exist"));
 
 
-            var user = await _userService.GetUserCar(userId);
+            var user = await _userService.GetUserCar(userId.Value);
 
 
             return Ok(user);

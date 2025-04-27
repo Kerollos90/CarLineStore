@@ -11,6 +11,8 @@ using CarLine.Service.Services.AppSellerServices;
 using CarLine.Service.Services.AppSellerServices.Dto;
 using CarLine.Service.Services.CarServices;
 using CarLine.Service.Services.CarServices.Dto;
+using CarLine.Service.Services.CarShowRoomServices;
+using CarLine.Service.Services.CarShowRoomServices.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,10 +53,12 @@ namespace Carline.Web
 
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<ICarShowRoomServices, CarShowRoomService>();
             builder.Services.AddScoped<ICarService, CarService>();
             builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddAutoMapper(m => m.AddProfile(new CarProfile()));
-            builder.Services.AddAutoMapper(typeof(UserProfile));
+            builder.Services.AddAutoMapper(typeof(CarProfile));
+            builder.Services.AddAutoMapper(typeof(UserProfile));    
+            builder.Services.AddAutoMapper(typeof(ShowRoomProfile));    
             builder.Services.AddScoped<CarPictureUrlResolver>();
             builder.Services.AddScoped<OnePictureResolver>();
 
@@ -108,7 +112,7 @@ namespace Carline.Web
                 app.UseSwaggerUI();
             }
 
-            app.UseMiddleware<ExceptionMiddleware>();
+           // app.UseMiddleware<ExceptionMiddleware>();
 
 
 

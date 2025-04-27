@@ -34,6 +34,8 @@ namespace CarLine.Service.Services.CarServices
             if (car is null)
                 throw new Exception("Error Your Data Not Completed");
 
+           
+
            var cars =  _mapper.Map<Car>( car );
 
             

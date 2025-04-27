@@ -46,7 +46,8 @@ namespace CarLine.Model.Entity
         [NotMapped]
         public int CarId { get; set; }
 
-        public AppSeller AppSeller { get; set; }
+
+        public string? AppSellerId { get; set; }
 
         public Picture? PictureUrl { get; set; } 
 

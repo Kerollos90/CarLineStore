@@ -9,6 +9,8 @@ namespace CarLine.Repository.Interfices
         Task<List<TEntity>> GetAllAsync();
         Task<TEntity> GetById(int? Id);
 
+        Task<TEntity> GetByIdAsNotTracked(int? Id);
+
         Task<TEntity> GetWithSpcificationById(ISpecification<TEntity> specs);
         Task<List<TEntity>> GetAllWithSpcificationAsync(ISpecification<TEntity> specs);
 
